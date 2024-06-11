@@ -1,7 +1,8 @@
 import streamlit as st
-from elevenlabs import play
+from elevenlabs import play, stream
 from elevenlabs.client import ElevenLabs
 import os
+import ffmpeg
 os.environ['OPENAI_API_KEY'] = "sk-proj-NLve14xoGJ5yhdxGnwZAT3BlbkFJpd9Qyu4c3to7UwY0yaZl"
 from llama_index.core import VectorStoreIndex, SimpleDirectoryReader
 client = ElevenLabs(
@@ -22,7 +23,7 @@ with st.form('my form'):
             voice = "Rachel",
             model = "eleven_multilingual_v2",
         )
-        play (audio)
+        stream (audio)
 
 # Welcome to Streamlit!
 

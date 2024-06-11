@@ -1,4 +1,7 @@
 altair
 pandas
 streamlit
+elevenlabs
+openai
+llama-index
 ffmpeg-python
