@@ -3,10 +3,10 @@ from elevenlabs import play, stream
 from elevenlabs.client import ElevenLabs
 import os
 import ffmpeg
-os.environ['OPENAI_API_KEY'] = "sk-proj-NLve14xoGJ5yhdxGnwZAT3BlbkFJpd9Qyu4c3to7UwY0yaZl"
+os.environ['OPENAI_API_KEY'] = ""
 from llama_index.core import VectorStoreIndex, SimpleDirectoryReader
 client = ElevenLabs(
-    api_key="1c926715df7d2788a147631eeafa2e8d"
+    api_key=""
 )
 st.title('MEM-Bot')
 with st.form('my form'):
