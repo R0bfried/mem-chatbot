@@ -5,9 +5,9 @@ import os
 from llama_index.core import VectorStoreIndex, SimpleDirectoryReader
 import ffmpeg
 
-os.environ['OPENAI_API_KEY'] = 'sk-proj-2NIomBT1UrHqQqvDMcMST3BlbkFJOApKYaxtgphQdxu9qsx1'
+os.environ['OPENAI_API_KEY'] = 'OAI_API_Key'
 client = ElevenLabs(
-    api_key= '1c926715df7d2788a147631eeafa2e8d'
+    api_key= 'EL_API_KEY'
     )
 
 
