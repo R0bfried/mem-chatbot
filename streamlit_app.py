@@ -1,5 +1,5 @@
 import streamlit as st
-from elevenlabs import play, stream
+from elevenlabs import play, stream, save
 from elevenlabs.client import ElevenLabs
 import os
 from llama_index.core import VectorStoreIndex, SimpleDirectoryReader
@@ -27,7 +27,7 @@ client = ElevenLabs(
 st.title('MEM-Bot')
 CHUNK_SIZE = 1024
 with st.form('my form'):
-    text = st.text_area('Enter text:', placeholder='Frage stellen 8')
+    text = st.text_area('Enter text:', placeholder='Frage stellen 9')
     submitted = st.form_submit_button('Submit')
     if submitted:
         reader = SimpleDirectoryReader(input_dir="data", recursive=True)
@@ -43,11 +43,10 @@ with st.form('my form'):
             voice = "Rachel",
             model = "eleven_multilingual_v2",
             stream=False,
+            
         )
-        with open('output.mp3', 'wb') as f:
-            for chunk in audio.iter_content(chunk_size=CHUNK_SIZE):
-                if chunk:
-                    f.write(chunk)
+        save(audio, "output.mp3")
+        
         st.audio("output.mp3", format="audio/mp3")
        
 # Welcome to Streamlit!
