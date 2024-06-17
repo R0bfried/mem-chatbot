@@ -24,14 +24,14 @@ client = ElevenLabs(
 st.title('MEM-Bot')
 
 with st.form('my form'):
-    text = st.text_area('Enter text:', placeholder='Hier Anfrage zum MEM-Studiengang stellen')
+    text = st.text_area('Enter text:', placeholder='Frage stellen')
     submitted = st.form_submit_button('Submit')
     if submitted:
         reader = SimpleDirectoryReader(input_dir="data", recursive=True)
         documents = reader.load_data()
         index = VectorStoreIndex.from_documents(documents)
         query_engine = index.as_query_engine()
-        response = query_engine.query("What is expected from the students?")
+        response = query_engine.query(str(text))
         print(response)
         st.text(response)
 
@@ -40,7 +40,7 @@ with st.form('my form'):
             voice = "Rachel",
             model = "eleven_multilingual_v2",
         )
-        play (audio)
+        st.audio(audio)
 # Welcome to Streamlit!
 
 #Edit `/streamlit_app.py` to customize this app to your heart's desire :heart:.
