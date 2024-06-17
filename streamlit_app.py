@@ -7,6 +7,8 @@ import ffmpeg
 import base64
 
 import io
+from tenacity import retry, AsyncRetrying
+
 
 
 
@@ -27,7 +29,7 @@ client = ElevenLabs(
 st.title('MEM-Bot')
 CHUNK_SIZE = 1024
 with st.form('my form'):
-    text = st.text_area('Enter text:', placeholder='Frage stellen 10')
+    text = st.text_area('Enter text:', placeholder='Frage stellen 11')
     submitted = st.form_submit_button('Submit')
     if submitted:
         reader = SimpleDirectoryReader(input_dir="data", recursive=True)
@@ -42,10 +44,11 @@ with st.form('my form'):
             text=str(response),
             voice = "Rachel",
             model = "eleven_multilingual_v2",
+            output_format="wav"
         )
-        save(audio, "output.mp3")
+        save(audio, "hagen_1.wav")
         
-        st.audio("output.mp3", format="audio/mp3")
+        st.audio("hagen_1.wav", format="audio/wav")
        
 # Welcome to Streamlit!
 
