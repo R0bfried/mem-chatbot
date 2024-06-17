@@ -25,9 +25,9 @@ client = ElevenLabs(
 
 
 st.title('MEM-Bot')
-
+CHUNK_SIZE = 1024
 with st.form('my form'):
-    text = st.text_area('Enter text:', placeholder='Frage stellen 7')
+    text = st.text_area('Enter text:', placeholder='Frage stellen 8')
     submitted = st.form_submit_button('Submit')
     if submitted:
         reader = SimpleDirectoryReader(input_dir="data", recursive=True)
@@ -43,9 +43,12 @@ with st.form('my form'):
             voice = "Rachel",
             model = "eleven_multilingual_v2",
             stream=False,
-            output_format="mp3"
         )
-        st.audio("hagen_1.wav", format="audio/wav")
+        with open('output.mp3', 'wb') as f:
+            for chunk in audio.iter_content(chunk_size=CHUNK_SIZE):
+                if chunk:
+                    f.write(chunk)
+        st.audio("output.mp3", format="audio/mp3")
        
 # Welcome to Streamlit!
 
