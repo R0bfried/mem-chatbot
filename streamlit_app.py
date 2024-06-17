@@ -8,7 +8,7 @@ import ffmpeg
 import base64
 
 import io
-from tenacity import retry, AsyncRetrying
+
 
 
 
@@ -40,19 +40,18 @@ with st.form('my form'):
         response = query_engine.query(str(text))
         print(response)
         st.text(response)
-
+        
         audio = client.generate(
             text=str(response),
             voice = "Rachel",
             model = "eleven_multilingual_v2",
-            output_format="wav"
+            output_format="mp3_44100_128"
         )
-        try:
-            save(audio, "hagen_1.wav")
-        except elevenlabs.core.api_error.ApiError:
-            print("not working")
         
-        st.audio("hagen_1.wav", format="audio/wav")
+        save(audio, "output.mp3")
+        
+        
+        st.audio("output.mp3", format="audio/mp3", autoplay=True)
        
 # Welcome to Streamlit!
 
