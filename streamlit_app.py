@@ -30,7 +30,7 @@ client = ElevenLabs(
 st.title('MEM-Bot')
 CHUNK_SIZE = 1024
 with st.form('my form'):
-    text = st.text_area('Enter text:', placeholder='Frage stellen 15')
+    text = st.text_area('Enter text:', placeholder='Frage stellen 16')
     submitted = st.form_submit_button('Submit')
     if submitted:
         # reader = SimpleDirectoryReader(input_dir="data", recursive=True)
@@ -40,7 +40,7 @@ with st.form('my form'):
         # response = query_engine.query(str(text))
         # print(response)
         # st.text(response)
-        response = "is this working, please tell me it is!"
+        response = "It will take 2 years!"
         audio = client.generate(
             text=str(response),
             voice = "Rachel",
@@ -48,10 +48,10 @@ with st.form('my form'):
             output_format="mp3_44100_128"
         )
         
-        save(audio, "output.mp3")
-        
-        
-        st.audio("output.mp3", format="audio/mp3", autoplay=True)
+        audio_data = b"".join(audio)
+
+# Use Streamlit to play the audio
+        st.audio(audio_data, format="audio/mp3", autoplay=True)
        
 # Welcome to Streamlit!
 
