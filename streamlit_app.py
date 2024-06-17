@@ -27,7 +27,7 @@ client = ElevenLabs(
 st.title('MEM-Bot')
 CHUNK_SIZE = 1024
 with st.form('my form'):
-    text = st.text_area('Enter text:', placeholder='Frage stellen 9')
+    text = st.text_area('Enter text:', placeholder='Frage stellen 10')
     submitted = st.form_submit_button('Submit')
     if submitted:
         reader = SimpleDirectoryReader(input_dir="data", recursive=True)
@@ -42,8 +42,6 @@ with st.form('my form'):
             text=str(response),
             voice = "Rachel",
             model = "eleven_multilingual_v2",
-            stream=False,
-            
         )
         save(audio, "output.mp3")
         
