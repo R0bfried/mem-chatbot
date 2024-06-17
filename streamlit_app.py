@@ -5,9 +5,11 @@ import os
 from llama_index.core import VectorStoreIndex, SimpleDirectoryReader
 import ffmpeg
 
-os.environ['OPENAI_API_KEY'] = 'OAI_API_Key'
+
+
+os.environ['OPENAI_API_KEY'] = st.secrets["OPENAI_API_KEY"]
 client = ElevenLabs(
-    api_key= 'EL_API_KEY'
+    api_key= st.secrets["EL_KEY"]
     )
 
 
@@ -20,11 +22,13 @@ client = ElevenLabs(
 
 
 st.title('MEM-Bot')
+
 with st.form('my form'):
-    text = st.text_area('Enter text:', 'Hier Anfrage zum MEM-Studiengang stellen')
+    text = st.text_area('Enter text:', placeholder='Hier Anfrage zum MEM-Studiengang stellen')
     submitted = st.form_submit_button('Submit')
     if submitted:
-        documents = SimpleDirectoryReader("data").load_data()
+        reader = SimpleDirectoryReader(input_dir="data", recursive=True)
+        documents = reader.load_data()
         index = VectorStoreIndex.from_documents(documents)
         query_engine = index.as_query_engine()
         response = query_engine.query("What is expected from the students?")

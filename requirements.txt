@@ -4,4 +4,6 @@ streamlit
 elevenlabs
 openai
 llama-index
+llama-index-readers-file
 ffmpeg-python
+nltk
