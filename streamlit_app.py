@@ -27,7 +27,7 @@ client = ElevenLabs(
 st.title('MEM-Bot')
 
 with st.form('my form'):
-    text = st.text_area('Enter text:', placeholder='Frage stellen 6')
+    text = st.text_area('Enter text:', placeholder='Frage stellen 7')
     submitted = st.form_submit_button('Submit')
     if submitted:
         reader = SimpleDirectoryReader(input_dir="data", recursive=True)
@@ -45,14 +45,7 @@ with st.form('my form'):
             stream=False,
             output_format="mp3"
         )
-        with open("audio_file.mp3", "wb") as audio_file:
-            audio_file.write(audio)
-        st.download_button(
-            label="Download Audio",
-            data="mp3",
-            file_name="audio_file.mp3",
-            mime="mp3",
-        )
+        st.audio("hagen_1.wav", format="audio/wav")
        
 # Welcome to Streamlit!
 
