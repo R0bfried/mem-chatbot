@@ -4,6 +4,7 @@ from elevenlabs.client import ElevenLabs
 import os
 from llama_index.core import VectorStoreIndex, SimpleDirectoryReader
 import ffmpeg
+import base64
 
 
 
@@ -40,7 +41,17 @@ with st.form('my form'):
             voice = "Rachel",
             model = "eleven_multilingual_v2",
         )
-        st.audio(audio)
+        b64 = base64.b64encode(audio).decode()
+        md = f"""
+            <audio controls autoplay="true">
+            <source src="data:audio/mp3;base64,{b64}" type="audio/mp3">
+            </audio>
+            """
+        st.markdown(
+            md,
+            unsafe_allow_html=True,
+        )
+       
 # Welcome to Streamlit!
 
 #Edit `/streamlit_app.py` to customize this app to your heart's desire :heart:.
