@@ -28,7 +28,7 @@ client = ElevenLabs(
 st.title('MEM-Bot')
 
 with st.form('my form'):
-    text = st.text_area('Enter text:', placeholder='Frage stellen')
+    text = st.text_area('Enter text:', placeholder='Frage stellen 3')
     submitted = st.form_submit_button('Submit')
     if submitted:
         reader = SimpleDirectoryReader(input_dir="data", recursive=True)
