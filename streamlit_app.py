@@ -5,8 +5,7 @@ import os
 from llama_index.core import VectorStoreIndex, SimpleDirectoryReader
 import ffmpeg
 import base64
-from pydub import AudioSegment
-from pydub.playback import play
+
 import io
 
 
@@ -28,7 +27,7 @@ client = ElevenLabs(
 st.title('MEM-Bot')
 
 with st.form('my form'):
-    text = st.text_area('Enter text:', placeholder='Frage stellen 3')
+    text = st.text_area('Enter text:', placeholder='Frage stellen 4')
     submitted = st.form_submit_button('Submit')
     if submitted:
         reader = SimpleDirectoryReader(input_dir="data", recursive=True)
@@ -43,9 +42,10 @@ with st.form('my form'):
             text=str(response),
             voice = "Rachel",
             model = "eleven_multilingual_v2",
+            stream=False,
+            output_format="mp3"
         )
-        song = AudioSegment.from_file(audio, format="mp3")
-        play(song)
+        play(audio)
        
 # Welcome to Streamlit!
 
