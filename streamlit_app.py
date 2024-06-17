@@ -5,6 +5,9 @@ import os
 from llama_index.core import VectorStoreIndex, SimpleDirectoryReader
 import ffmpeg
 import base64
+from pydub import AudioSegment
+from pydub.playback import play
+import io
 
 
 
@@ -41,16 +44,8 @@ with st.form('my form'):
             voice = "Rachel",
             model = "eleven_multilingual_v2",
         )
-        b64 = base64.b64encode(audio).decode()
-        md = f"""
-            <audio controls autoplay="true">
-            <source src="data:audio/mp3;base64,{b64}" type="audio/mp3">
-            </audio>
-            """
-        st.markdown(
-            md,
-            unsafe_allow_html=True,
-        )
+        song = AudioSegment.from_file(audio, format="mp3")
+        play(song)
        
 # Welcome to Streamlit!
 
