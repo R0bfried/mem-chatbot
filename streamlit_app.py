@@ -33,6 +33,7 @@ with st.form('my form'):
         query_engine = index.as_query_engine()
         response = query_engine.query("What is expected from the students?")
         print(response)
+        st.text(response)
 
         audio = client.generate(
             text=str(response),
