@@ -33,14 +33,14 @@ with st.form('my form'):
     text = st.text_area('Enter text:', placeholder='Frage stellen 13')
     submitted = st.form_submit_button('Submit')
     if submitted:
-        reader = SimpleDirectoryReader(input_dir="data", recursive=True)
-        documents = reader.load_data()
-        index = VectorStoreIndex.from_documents(documents)
-        query_engine = index.as_query_engine()
-        response = query_engine.query(str(text))
-        print(response)
-        st.text(response)
-        
+        # reader = SimpleDirectoryReader(input_dir="data", recursive=True)
+        # documents = reader.load_data()
+        # index = VectorStoreIndex.from_documents(documents)
+        # query_engine = index.as_query_engine()
+        # response = query_engine.query(str(text))
+        # print(response)
+        # st.text(response)
+        response = "is this working, please tell me it is!"
         audio = client.generate(
             text=str(response),
             voice = "Rachel",
