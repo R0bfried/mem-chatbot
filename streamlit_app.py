@@ -30,17 +30,17 @@ client = ElevenLabs(
 st.title('MEM-Bot')
 CHUNK_SIZE = 1024
 with st.form('my form'):
-    text = st.text_area('Enter text:', placeholder='Frage stellen 17')
+    text = st.text_area('Enter text:', placeholder='Frage stellen')
     submitted = st.form_submit_button('Submit')
     if submitted:
-        # reader = SimpleDirectoryReader(input_dir="data", recursive=True)
-        # documents = reader.load_data()
-        # index = VectorStoreIndex.from_documents(documents)
-        # query_engine = index.as_query_engine()
-        # response = query_engine.query(str(text))
-        # print(response)
-        # st.text(response)
-        response = "It will take 2 years!"
+        reader = SimpleDirectoryReader(input_dir="data", recursive=True)
+        documents = reader.load_data()
+        index = VectorStoreIndex.from_documents(documents)
+        query_engine = index.as_query_engine()
+        response = query_engine.query(str(text))
+        print(response)
+        st.text(response)
+       
         audio = client.generate(
             text=str(response),
             voice = "Rachel",
