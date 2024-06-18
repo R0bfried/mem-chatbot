@@ -45,7 +45,7 @@ with st.form('my form'):
        
         audio = client.generate(
             text=str(response),
-            voice = "Rachel",
+            voice = "PFBcP8jRKW2qht5HPwFt",
             model = "eleven_multilingual_v2",
             output_format="mp3_44100_128"
         )
