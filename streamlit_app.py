@@ -7,7 +7,7 @@ from llama_index.core import VectorStoreIndex, SimpleDirectoryReader
 import ffmpeg
 import base64
 import io
-from google_trans_new import google_translator
+from googletrans import Translator
 
 
 #Variables: API Keys
@@ -53,12 +53,12 @@ if prompt := st.chat_input("Womit kann ich dir helfen?"):
         st.info("Initialized chat engine")
     
     with st.chat_message("Assistant"):
-        translator = google_translator()
+        translator = Translator()
         chat_engine = st.session_state.chat_engine
-        prompten = translator.translate(str(prompt), lang_tgt='en')
-        response = chat_engine.chat(str(prompten))
-        responsede = translator.translate(str(response), lang_tgt='de')
-        st.session_state.messages.append({"role": "Assistant", "content": responsede})
+        prompten = translator.translate(str(prompt), dest='en')
+        response = chat_engine.chat(str(prompten.text))
+        responsede = translator.translate(str(response), dest='de')
+        st.session_state.messages.append({"role": "Assistant", "content": responsede.text})
         st.markdown(responsede.text)
         if activetts:
             audio = client.generate(
