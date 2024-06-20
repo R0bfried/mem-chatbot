@@ -44,14 +44,13 @@ with st.form('my form'):
         print(response)
         st.text(response)
        if activetts:
-            audio = client.generate(
-                text=str(response),
-                voice = "PFBcP8jRKW2qht5HPwFt",
-                model = "eleven_multilingual_v2",
-                output_format="mp3_44100_128"
-            )
-        
-            save(audio, "output.mp3")
+           audio = client.generate(
+               text=str(response),
+               voice = "PFBcP8jRKW2qht5HPwFt",
+               model = "eleven_multilingual_v2",
+               output_format="mp3_44100_128"
+           )
+           save(audio, "output.mp3")
 
 # Read the audio file into bytes
         with open("output.mp3", "rb") as file:
