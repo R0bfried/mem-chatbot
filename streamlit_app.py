@@ -53,6 +53,7 @@ if prompt := st.chat_input("What is up?"):
             index = VectorStoreIndex.from_documents(documents)
             chat_engine = index.as_chat_engine(chat_mode="condense_question", verbose=True)
             initialize = False
+            st.info("Initialized chat engine")
         response = chat_engine.chat(str(prompt))
         st.session_state.messages.append({"role": "Assistant", "content": response})
         st.markdown(response)
