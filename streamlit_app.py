@@ -6,16 +6,16 @@ import os
 from llama_index.core import VectorStoreIndex, SimpleDirectoryReader
 import ffmpeg
 import base64
-
 import io
+from googletrans import Translator
 
 
-
-#Variables: Initialize -> read Docs only at 1st time, API Keys
+#Variables: API Keys
 os.environ['OPENAI_API_KEY'] = st.secrets["OPENAI_API_KEY"]
 client = ElevenLabs(
     api_key= st.secrets["EL_KEY"]
     )
+translator = Translator()
 
 #Title and Logo of MEM Bot
 col1, col2 = st.columns(2)
@@ -55,12 +55,14 @@ if prompt := st.chat_input("Womit kann ich dir helfen?"):
     
     with st.chat_message("Assistant"):
         chat_engine = st.session_state.chat_engine
-        response = chat_engine.chat(str(prompt))
-        st.session_state.messages.append({"role": "Assistant", "content": response})
-        st.markdown(response)
+        prompten = translate(prompt, dest='en')
+        response = chat_engine.chat(str(prompten.text))
+        responsede = translate(response, dest='de')
+        st.session_state.messages.append({"role": "Assistant", "content": responsede.text})
+        st.markdown(responsede.text)
         if activetts:
             audio = client.generate(
-                text=str(response),
+                text=str(responsede.text),
                 voice = "PFBcP8jRKW2qht5HPwFt",
                 model = "eleven_multilingual_v2",
                 output_format="mp3_44100_128"
