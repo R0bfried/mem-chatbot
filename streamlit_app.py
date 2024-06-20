@@ -15,7 +15,7 @@ os.environ['OPENAI_API_KEY'] = st.secrets["OPENAI_API_KEY"]
 client = ElevenLabs(
     api_key= st.secrets["EL_KEY"]
     )
-translator = deepl.Translator(st.secrets["DEEPL_KEY"])
+
 
 #Title and Logo of MEM Bot
 col1, col2 = st.columns(2)
@@ -54,10 +54,11 @@ if prompt := st.chat_input("Womit kann ich dir helfen?"):
         st.info("Initialized chat engine")
     
     with st.chat_message("Assistant"):
+        translator = deepl.Translator("7e002bff-8bb0-4ce5-9cc8-95680597919e:fx")
         chat_engine = st.session_state.chat_engine
-        prompten = translator.translate_text(str(prompt), target_lang='EN')
+        prompt_en = translator.translate_text(str(prompt), target_lang='EN')
         response = chat_engine.chat(str(prompten.text))
-        responsede = translator.translate_text(str(response), target_lang='DE')
+        response_de = translator.translate_text(str(response), target_lang='DE')
         st.session_state.messages.append({"role": "Assistant", "content": responsede.text})
         st.markdown(responsede.text)
         if activetts:
