@@ -15,6 +15,7 @@ os.environ['OPENAI_API_KEY'] = st.secrets["OPENAI_API_KEY"]
 client = ElevenLabs(
     api_key= st.secrets["EL_KEY"]
     )
+st.session_state.antwortlesen = "Antwort vorlesen"
 
 
 #Title and Logo of MEM Bot
@@ -24,12 +25,13 @@ with col1:
     st.image('MemBot-Logo.png')
 with col2:
     language = st.selectbox("Language", ("Deutsch", "Englisch"))
-    activetts = st.toggle("Read answer")
+    activetts = st.toggle(antwortlesen)
 CHUNK_SIZE = 1024
 if language == "Deutsch":
     st.markdown("Willkommen beim MEM-Bot. Hier werden deine Fragen zum Studium von unserem virtuellen Prof. Peter beantwortet")
 else:
     st.markdown("Welcome to MEM-Bot. Our virtual Prof. Peter is happy to answer all your questions concerning the study program")
+    st.session_state.antwortlesen = "Read answer"
 
 #Chat functionality
 
