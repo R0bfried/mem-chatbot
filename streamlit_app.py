@@ -30,7 +30,7 @@ st.logo('https://www.hs-pforzheim.de/typo3conf/ext/wr_hspfo/Resources/Public/Ima
 with col1:
     st.title('MEM-Bot 1.0')
 with col2:
-    st.image('https://www.hs-pforzheim.de/typo3conf/ext/wr_hspfo/Resources/Public/Images/logo.svg')
+    st.image('https://www.hs-pforzheim.de/typo3conf/ext/wr_hspfo/Resources/Public/Images/logo.svg', width=100)
 CHUNK_SIZE = 1024
 with st.form('my form'):
     activetts = st.toggle("Read answer")
