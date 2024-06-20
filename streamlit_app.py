@@ -22,7 +22,7 @@ client = ElevenLabs(
 col1, col2 = st.columns(2)
 st.logo('https://www.hs-pforzheim.de/typo3conf/ext/wr_hspfo/Resources/Public/Images/logo.svg')
 with col1:
-    st.title('MEM-Bot 1.0')
+    st.title('MEM-Bot 1.1')
 with col2:
     st.image('MemBot-Logo.png')
 CHUNK_SIZE = 1024
@@ -51,7 +51,7 @@ if prompt := st.chat_input("What is up?"):
             reader = SimpleDirectoryReader(input_dir="data", recursive=True)
             documents = reader.load_data()
             index = VectorStoreIndex.from_documents(documents)
-            chat_engine = index.as_chat_engine()
+            chat_engine = index.as_chat_engine(chat_mode="condense_question", verbose=True)
             initialize = False
         response = chat_engine.chat(str(prompt))
         st.session_state.messages.append({"role": "Assistant", "content": response})
