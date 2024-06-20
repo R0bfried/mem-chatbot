@@ -26,7 +26,7 @@ client = ElevenLabs(
 #    if submitAPI:
 
 
-
+st.logo('https://www.berufaktuell-pforzheim.de/wp-content/uploads/2022/01/85de57b5-c2e7-44cc-8a49-cc139db00f0f.jpg')
 st.title('MEM-Bot 1.0')
 CHUNK_SIZE = 1024
 with st.form('my form'):
