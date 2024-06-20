@@ -25,7 +25,7 @@ with col1:
     st.image('MemBot-Logo.png')
 with col2:
     language = st.selectbox("Language", ("Deutsch", "Englisch"))
-    activetts = st.toggle(antwortlesen)
+    activetts = st.toggle(st.session_state.antwortlesen)
 CHUNK_SIZE = 1024
 if language == "Deutsch":
     st.markdown("Willkommen beim MEM-Bot. Hier werden deine Fragen zum Studium von unserem virtuellen Prof. Peter beantwortet")
