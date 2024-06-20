@@ -15,8 +15,7 @@ os.environ['OPENAI_API_KEY'] = st.secrets["OPENAI_API_KEY"]
 client = ElevenLabs(
     api_key= st.secrets["EL_KEY"]
     )
-
-translator = google_translator()
+st.session_state.translator = google_translator()
 
 #Title and Logo of MEM Bot
 col1, col2 = st.columns(2)
@@ -55,6 +54,7 @@ if prompt := st.chat_input("Womit kann ich dir helfen?"):
         st.info("Initialized chat engine")
     
     with st.chat_message("Assistant"):
+        translator = st.session_state.translator
         chat_engine = st.session_state.chat_engine
         prompten = translator.translate(prompt, lang_tgt='en')
         response = chat_engine.chat(str(prompten))
