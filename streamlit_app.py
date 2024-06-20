@@ -45,14 +45,17 @@ if prompt := st.chat_input("What is up?"):
     # Display user message in chat message container
     with st.chat_message("user"):
         st.markdown(prompt)
+        
+    if "chat_engine" not in st.session_state:
+    reader = SimpleDirectoryReader(input_dir="data", recursive=True)
+    documents = reader.load_data()
+    index = VectorStoreIndex.from_documents(documents)
+    st.session_state.chat_engine = index.as_chat_engine(chat_mode="condense_question", verbose=True)
+    st.session_state.messages = []
+    st.info("Initialized chat engine")
+    
     with st.chat_message("Assistant"):
-        if "reader" not in locals():
-            reader = SimpleDirectoryReader(input_dir="data", recursive=True)
-            documents = reader.load_data()
-            index = VectorStoreIndex.from_documents(documents)
-            chat_engine = index.as_chat_engine(chat_mode="condense_question", verbose=True)
-            initialize = False
-            st.info("Initialized chat engine")
+        chat_engine = st.session_state.chat_engine
         response = chat_engine.chat(str(prompt))
         st.session_state.messages.append({"role": "Assistant", "content": response})
         st.markdown(response)
