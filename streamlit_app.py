@@ -16,7 +16,7 @@ os.environ['OPENAI_API_KEY'] = st.secrets["OPENAI_API_KEY"]
 client = ElevenLabs(
     api_key= st.secrets["EL_KEY"]
     )
-chat_engine = index.as_chat_engine(chat_mode="condense_question", verbose=True)
+CHUNK_SIZE = 1024
 
 #Title and Logo of MEM Bot
 col1, col2 = st.columns(2)
@@ -30,8 +30,9 @@ with col2:
         reader = SimpleDirectoryReader(input_dir="data", recursive=True)
         documents = reader.load_data()
         index = VectorStoreIndex.from_documents(documents)
+        chat_engine = index.as_chat_engine(chat_mode="condense_question", verbose=True)
         st.info("Initialized chat engine")
-CHUNK_SIZE = 1024
+
 
 #Chat functionality
 
