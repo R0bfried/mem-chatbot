@@ -21,14 +21,14 @@ client = ElevenLabs(
 col1, col2 = st.columns(2)
 st.logo('https://www.hs-pforzheim.de/typo3conf/ext/wr_hspfo/Resources/Public/Images/logo.svg')
 with col1:
-    st.title('MEM-Bot 1.1')
+    language = st.selectbox("Language", ("Deutsch", "Englisch"))
+    activetts = st.toggle("Read answer")
 with col2:
     st.image('MemBot-Logo.png')
 CHUNK_SIZE = 1024
 
 #Chat functionality
 
-activetts = st.toggle("Read answer")
 
 # Initialize chat history
 if "messages" not in st.session_state:
@@ -53,11 +53,14 @@ if prompt := st.chat_input("Womit kann ich dir helfen?"):
         st.session_state.chat_engine = index.as_chat_engine(chat_mode="condense_question", verbose=True)
         st.info("Initialized chat engine")
     
-    with st.chat_message("Assistant"):
-        translator = deepl.Translator("7e002bff-8bb0-4ce5-9cc8-95680597919e:fx")
+    with st.chat_message("Assistant"):        
+        translator = deepl.Translator(st.secrets["DEEPL_KEY"])
         chat_engine = st.session_state.chat_engine
         response = chat_engine.chat(str(prompt))
-        response_de = translator.translate_text(str(response), target_lang="DE")
+        if language = "Deutsch":
+            response_de = translator.translate_text(str(response), target_lang="DE")
+        else
+            response_de = response
         st.session_state.messages.append({"role": "Assistant", "content": response_de.text})
         st.markdown(response_de.text)
         if activetts:
