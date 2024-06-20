@@ -55,9 +55,9 @@ if prompt := st.chat_input("Womit kann ich dir helfen?"):
     
     with st.chat_message("Assistant"):
         chat_engine = st.session_state.chat_engine
-        prompten = translate(prompt, dest='en')
+        prompten = translator.translate(prompt, dest='en')
         response = chat_engine.chat(str(prompten.text))
-        responsede = translate(response, dest='de')
+        responsede = translator.translate(response, dest='de')
         st.session_state.messages.append({"role": "Assistant", "content": responsede.text})
         st.markdown(responsede.text)
         if activetts:
