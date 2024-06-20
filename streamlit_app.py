@@ -57,7 +57,7 @@ if prompt := st.chat_input("Womit kann ich dir helfen?"):
         translator = deepl.Translator(st.secrets["DEEPL_KEY"])
         chat_engine = st.session_state.chat_engine
         response = chat_engine.chat(str(prompt))
-        if language = "Deutsch":
+        if language == "Deutsch":
             response_de = translator.translate_text(str(response), target_lang="DE")
         else
             response_de = response
