@@ -59,7 +59,7 @@ if prompt := st.chat_input("Womit kann ich dir helfen?"):
         response = chat_engine.chat(str(prompt))
         if language == "Deutsch":
             response_de = translator.translate_text(str(response), target_lang="DE")
-        else
+        else:
             response_de = response
         st.session_state.messages.append({"role": "Assistant", "content": response_de.text})
         st.markdown(response_de.text)
