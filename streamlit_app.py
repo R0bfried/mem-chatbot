@@ -21,10 +21,10 @@ client = ElevenLabs(
 col1, col2 = st.columns(2)
 st.logo('https://www.hs-pforzheim.de/typo3conf/ext/wr_hspfo/Resources/Public/Images/logo.svg')
 with col1:
+    st.image('MemBot-Logo.png')
+with col2:
     language = st.selectbox("Language", ("Deutsch", "Englisch"))
     activetts = st.toggle("Read answer")
-with col2:
-    st.image('MemBot-Logo.png')
 CHUNK_SIZE = 1024
 
 #Chat functionality
