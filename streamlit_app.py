@@ -28,6 +28,7 @@ client = ElevenLabs(
 
 
 st.title('MEM-Bot')
+activetts = st.toggle("Read answer")
 CHUNK_SIZE = 1024
 with st.form('my form'):
     text = st.text_area('Enter text:', placeholder='Frage stellen')
@@ -42,15 +43,15 @@ with st.form('my form'):
         response = query_engine.query(str(text))
         print(response)
         st.text(response)
-       
-        audio = client.generate(
-            text=str(response),
-            voice = "PFBcP8jRKW2qht5HPwFt",
-            model = "eleven_multilingual_v2",
-            output_format="mp3_44100_128"
-        )
+       if activetts:
+            audio = client.generate(
+                text=str(response),
+                voice = "PFBcP8jRKW2qht5HPwFt",
+                model = "eleven_multilingual_v2",
+                output_format="mp3_44100_128"
+            )
         
-        save(audio, "output.mp3")
+            save(audio, "output.mp3")
 
 # Read the audio file into bytes
         with open("output.mp3", "rb") as file:
