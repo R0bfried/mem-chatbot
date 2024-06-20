@@ -8,4 +8,4 @@ llama-index-readers-file
 ffmpeg-python
 nltk
 pydub
-googletrans
+google_trans_new
