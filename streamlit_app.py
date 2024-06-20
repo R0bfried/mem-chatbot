@@ -3,19 +3,26 @@ from elevenlabs import play, stream, save
 import elevenlabs
 from elevenlabs.client import ElevenLabs
 import os
-from llama_index.core import VectorStoreIndex, SimpleDirectoryReader
+from llama_index.core import VectorStoreIndex, SimpleDirectoryReader, PromptTemplate
 import ffmpeg
 import base64
-
 import io
 
-
+german_template = (
+    "Wir haben unten Kontextinformationen bereitgestellt. \n"
+    "---------------------\n"
+    "{context_str}"
+    "\n---------------------\n"
+    "Basierend auf diesen Informationen, bitte beantworte die Frage: {query_str}\n"
+)
+qa_template = PromptTemplate(german_template)
 
 #Variables: Initialize -> read Docs only at 1st time, API Keys
 os.environ['OPENAI_API_KEY'] = st.secrets["OPENAI_API_KEY"]
 client = ElevenLabs(
     api_key= st.secrets["EL_KEY"]
     )
+template = (
 
 #Title and Logo of MEM Bot
 col1, col2 = st.columns(2)
@@ -51,7 +58,7 @@ if prompt := st.chat_input("Womit kann ich dir helfen?"):
         documents = reader.load_data()
         index = VectorStoreIndex.from_documents(documents)
         st.session_state.chat_engine = index.as_chat_engine(chat_mode="condense_question", verbose=True)
-        st.info("Initialized chat engine")
+        st.info("Chat Initialisiert")
     
     with st.chat_message("Assistant"):
         chat_engine = st.session_state.chat_engine
