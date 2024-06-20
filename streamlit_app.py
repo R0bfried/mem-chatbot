@@ -33,7 +33,6 @@ activetts = st.toggle("Read answer")
 # Initialize chat history
 if "messages" not in st.session_state:
     st.session_state.messages = []
-    initialize = True
 
 # Display chat messages from history on app rerun
 for message in st.session_state.messages:
@@ -47,7 +46,7 @@ if prompt := st.chat_input("What is up?"):
     with st.chat_message("user"):
         st.markdown(prompt)
     with st.chat_message("Assistant"):
-        if initialize:
+        if "reader" not in locals():
             reader = SimpleDirectoryReader(input_dir="data", recursive=True)
             documents = reader.load_data()
             index = VectorStoreIndex.from_documents(documents)
