@@ -24,7 +24,7 @@ with col1:
     st.image('MemBot-Logo.png')
 with col2:
     language = st.selectbox("Language", ("Deutsch", "Englisch"))
-    if language = "Deutsch":
+    if language == "Deutsch":
         activetts = st.toggle("Antwort vorlesen")
     else:
         activetts = st.toggle("Read answer")
