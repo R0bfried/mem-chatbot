@@ -57,13 +57,13 @@ if prompt := st.chat_input("Womit kann ich dir helfen?"):
         translator = deepl.Translator("7e002bff-8bb0-4ce5-9cc8-95680597919e:fx")
         chat_engine = st.session_state.chat_engine
         prompt_en = translator.translate_text(str(prompt), target_lang="EN-US")
-        response = chat_engine.chat(str(prompten.text))
+        response = chat_engine.chat(str(prompt_en.text))
         response_de = translator.translate_text(str(response), target_lang="DE")
-        st.session_state.messages.append({"role": "Assistant", "content": responsede.text})
-        st.markdown(responsede.text)
+        st.session_state.messages.append({"role": "Assistant", "content": response_de.text})
+        st.markdown(response_de.text)
         if activetts:
             audio = client.generate(
-                text=str(responsede.text),
+                text=str(response_de.text),
                 voice = "PFBcP8jRKW2qht5HPwFt",
                 model = "eleven_multilingual_v2",
                 output_format="mp3_44100_128"
