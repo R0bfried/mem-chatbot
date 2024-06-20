@@ -51,9 +51,9 @@ if prompt := st.chat_input("What is up?"):
             reader = SimpleDirectoryReader(input_dir="data", recursive=True)
             documents = reader.load_data()
             index = VectorStoreIndex.from_documents(documents)
-            query_engine = index.as_query_engine()
+            chat_engine = index.as_chat_engine()
             initialize = False
-        response = query_engine.query(str(prompt))
+        response = chat_engine.chat(str(prompt))
         st.session_state.messages.append({"role": "Assistant", "content": response})
         st.markdown(response)
         if activetts:
