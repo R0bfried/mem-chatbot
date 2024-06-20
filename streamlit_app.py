@@ -16,31 +16,24 @@ os.environ['OPENAI_API_KEY'] = st.secrets["OPENAI_API_KEY"]
 client = ElevenLabs(
     api_key= st.secrets["EL_KEY"]
     )
-CHUNK_SIZE = 1024
 
 #Title and Logo of MEM Bot
 col1, col2 = st.columns(2)
 st.logo('https://www.hs-pforzheim.de/typo3conf/ext/wr_hspfo/Resources/Public/Images/logo.svg')
 with col1:
     st.title('MEM-Bot 1.1')
-    activetts = st.toggle("Read answer")
 with col2:
     st.image('MemBot-Logo.png')
-    if st.button("initialize"):
-        reader = SimpleDirectoryReader(input_dir="data", recursive=True)
-        documents = reader.load_data()
-        index = VectorStoreIndex.from_documents(documents)
-        chat_engine = index.as_chat_engine(chat_mode="condense_question", verbose=True)
-        st.info("Initialized chat engine")
-
+CHUNK_SIZE = 1024
 
 #Chat functionality
 
-
+activetts = st.toggle("Read answer")
 
 # Initialize chat history
 if "messages" not in st.session_state:
     st.session_state.messages = []
+    initialize = True
 
 # Display chat messages from history on app rerun
 for message in st.session_state.messages:
@@ -54,6 +47,13 @@ if prompt := st.chat_input("What is up?"):
     with st.chat_message("user"):
         st.markdown(prompt)
     with st.chat_message("Assistant"):
+        if initialize:
+            reader = SimpleDirectoryReader(input_dir="data", recursive=True)
+            documents = reader.load_data()
+            index = VectorStoreIndex.from_documents(documents)
+            chat_engine = index.as_chat_engine(chat_mode="condense_question", verbose=True)
+            initialize = False
+            st.info("Initialized chat engine")
         response = chat_engine.chat(str(prompt))
         st.session_state.messages.append({"role": "Assistant", "content": response})
         st.markdown(response)
