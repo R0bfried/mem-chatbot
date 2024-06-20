@@ -25,9 +25,12 @@ client = ElevenLabs(
 #    submitAPI = st.form_submit_button ('OK')
 #    if submitAPI:
 
-
+col1, col2 = st.columns(2)
 st.logo('https://www.hs-pforzheim.de/typo3conf/ext/wr_hspfo/Resources/Public/Images/logo.svg')
-st.title('MEM-Bot 1.0')
+with col1:
+    st.title('MEM-Bot 1.0')
+with col2:
+    st.image('https://www.hs-pforzheim.de/typo3conf/ext/wr_hspfo/Resources/Public/Images/logo.svg')
 CHUNK_SIZE = 1024
 with st.form('my form'):
     activetts = st.toggle("Read answer")
