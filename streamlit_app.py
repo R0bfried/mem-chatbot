@@ -56,8 +56,7 @@ if prompt := st.chat_input("Womit kann ich dir helfen?"):
     with st.chat_message("Assistant"):
         translator = deepl.Translator("7e002bff-8bb0-4ce5-9cc8-95680597919e:fx")
         chat_engine = st.session_state.chat_engine
-        prompt_en = translator.translate_text(str(prompt), target_lang="EN-US")
-        response = chat_engine.chat(str(prompt_en.text))
+        response = chat_engine.chat(str(prompt))
         response_de = translator.translate_text(str(response), target_lang="DE")
         st.session_state.messages.append({"role": "Assistant", "content": response_de.text})
         st.markdown(response_de.text)
