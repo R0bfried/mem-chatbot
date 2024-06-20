@@ -28,40 +28,40 @@ with col2:
 CHUNK_SIZE = 1024
 
 #Chat functionality
-with st.form('my form'):
-    activetts = st.toggle("Read answer")
-    if "messages" not in st.session_state:
-        st.session_state.messages = []
-    if text := st.chat_input("What is up?"):
-        # Add user message to chat history
-        st.session_state.messages.append({"role": "user", "content": text})
-        # Display user message in chat message container
-        with st.chat_message("user"):
-            st.markdown(text)
-        with st.chat_message("assistant"):
-            if initialize:
-                reader = SimpleDirectoryReader(input_dir="data", recursive=True)
-                documents = reader.load_data()
-                index = VectorStoreIndex.from_documents(documents)
-                query_engine = index.as_query_engine()
-                initialize = False
-            response = query_engine.query(str(text))
-            st.session_state.messages.append({"role": "assistant", "content": response})
-            if activetts:
-                audio = client.generate(
-                    text=str(response),
-                    voice = "PFBcP8jRKW2qht5HPwFt",
-                    model = "eleven_multilingual_v2",
-                    output_format="mp3_44100_128"
-                )
-                save(audio, "output.mp3")
+
+activetts = st.toggle("Read answer")
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+if text := st.chat_input("What is up?"):
+    # Add user message to chat history
+    st.session_state.messages.append({"role": "user", "content": text})
+    # Display user message in chat message container
+    with st.chat_message("user"):
+        st.markdown(text)
+    with st.chat_message("assistant"):
+        if initialize:
+            reader = SimpleDirectoryReader(input_dir="data", recursive=True)
+            documents = reader.load_data()
+            index = VectorStoreIndex.from_documents(documents)
+            query_engine = index.as_query_engine()
+            initialize = False
+        response = query_engine.query(str(text))
+        st.session_state.messages.append({"role": "assistant", "content": response})
+        if activetts:
+            audio = client.generate(
+                text=str(response),
+                voice = "PFBcP8jRKW2qht5HPwFt",
+                model = "eleven_multilingual_v2",
+                output_format="mp3_44100_128"
+            )
+            save(audio, "output.mp3")
     
     # Read the audio file into bytes
-                with open("output.mp3", "rb") as file:
-                    audio_data = file.read()
+            with open("output.mp3", "rb") as file:
+                audio_data = file.read()
     
             # Use Streamlit to play the audio
-                st.audio(audio_data, format="audio/mp3", autoplay=True)
+            st.audio(audio_data, format="audio/mp3", autoplay=True)
        
 # Welcome to Streamlit!
 
