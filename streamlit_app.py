@@ -70,6 +70,9 @@ if prompt := st.chat_input("What is up?"):
     
             # Use Streamlit to play the audio
             st.audio(audio_data, format="audio/mp3", autoplay=True)
+            for message in st.session_state.messages:
+                with st.chat_message(message["role"]):
+                st.markdown(message["content"])
        
 # Welcome to Streamlit!
 
