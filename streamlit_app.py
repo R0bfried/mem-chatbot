@@ -26,6 +26,10 @@ with col2:
     language = st.selectbox("Language", ("Deutsch", "Englisch"))
     activetts = st.toggle("Read answer")
 CHUNK_SIZE = 1024
+if language == "Deutsch":
+    st.markdown("Willkommen beim MEM-Bot. Hier werden deine Fragen zum Studium von unserem virtuellen Prof. Peter beantwortet")
+else:
+    st.markdown("Welcome to MEM-Bot. Our virtual Prof. Peter is happy to answer all your questions concerning the study program")
 
 #Chat functionality
 
