@@ -27,10 +27,10 @@ client = ElevenLabs(
 
 
 
-st.title('MEM-Bot')
-activetts = st.toggle("Read answer")
+st.title('MEM-Bot 1.0')
 CHUNK_SIZE = 1024
 with st.form('my form'):
+    activetts = st.toggle("Read answer")
     text = st.text_area('Enter text:', placeholder='Frage stellen')
     submitted = st.form_submit_button('Submit')
     if submitted:
