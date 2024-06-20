@@ -61,7 +61,9 @@ if prompt := st.chat_input("Womit kann ich dir helfen?"):
     
     with st.chat_message("Assistant"):
         chat_engine = st.session_state.chat_engine
-        response = chat_engine.chat(str(prompt))
+        response = chat_engine(
+            text_qa_template = qa_template,
+        ).chat(str(prompt))
         st.session_state.messages.append({"role": "Assistant", "content": response})
         st.markdown(response)
         if activetts:
