@@ -53,11 +53,11 @@ with st.form('my form'):
             save(audio, "output.mp3")
 
 # Read the audio file into bytes
-        with open("output.mp3", "rb") as file:
-            audio_data = file.read()
+            with open("output.mp3", "rb") as file:
+                audio_data = file.read()
 
         # Use Streamlit to play the audio
-        st.audio(audio_data, format="audio/mp3", autoplay=True)
+            st.audio(audio_data, format="audio/mp3", autoplay=True)
        
 # Welcome to Streamlit!
 
