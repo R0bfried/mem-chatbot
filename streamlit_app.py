@@ -47,12 +47,11 @@ if prompt := st.chat_input("What is up?"):
         st.markdown(prompt)
         
     if "chat_engine" not in st.session_state:
-    reader = SimpleDirectoryReader(input_dir="data", recursive=True)
-    documents = reader.load_data()
-    index = VectorStoreIndex.from_documents(documents)
-    st.session_state.chat_engine = index.as_chat_engine(chat_mode="condense_question", verbose=True)
-    st.session_state.messages = []
-    st.info("Initialized chat engine")
+        reader = SimpleDirectoryReader(input_dir="data", recursive=True)
+        documents = reader.load_data()
+        index = VectorStoreIndex.from_documents(documents)
+        st.session_state.chat_engine = index.as_chat_engine(chat_mode="condense_question", verbose=True)
+        st.info("Initialized chat engine")
     
     with st.chat_message("Assistant"):
         chat_engine = st.session_state.chat_engine
