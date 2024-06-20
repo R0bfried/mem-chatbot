@@ -54,6 +54,7 @@ if prompt := st.chat_input("What is up?"):
             query_engine = index.as_query_engine()
             initialize = False
         response = query_engine.query(str(prompt))
+        st.session_state.messages.append({"role": "Assistant", "content": response})
         if activetts:
             audio = client.generate(
                 text=str(response),
@@ -69,7 +70,6 @@ if prompt := st.chat_input("What is up?"):
     
             # Use Streamlit to play the audio
             st.audio(audio_data, format="audio/mp3", autoplay=True)
-    st.session_state.messages.append({"role": "Assistant", "content": response})
        
 # Welcome to Streamlit!
 
