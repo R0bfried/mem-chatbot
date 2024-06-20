@@ -38,7 +38,7 @@ with st.form('my form'):
         # Display user message in chat message container
         with st.chat_message("user"):
             st.markdown(text)
-        with st.chat_message("assistant):
+        with st.chat_message("assistant"):
             if initialize:
                 reader = SimpleDirectoryReader(input_dir="data", recursive=True)
                 documents = reader.load_data()
