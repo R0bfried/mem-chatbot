@@ -7,7 +7,7 @@ from llama_index.core import VectorStoreIndex, SimpleDirectoryReader
 import ffmpeg
 import base64
 import io
-from googletrans import Translator
+import deepl
 
 
 #Variables: API Keys
@@ -15,6 +15,7 @@ os.environ['OPENAI_API_KEY'] = st.secrets["OPENAI_API_KEY"]
 client = ElevenLabs(
     api_key= st.secrets["EL_KEY"]
     )
+translator = deepl.Translator(st.secrets["DEEPL_KEY"])
 
 #Title and Logo of MEM Bot
 col1, col2 = st.columns(2)
@@ -53,16 +54,15 @@ if prompt := st.chat_input("Womit kann ich dir helfen?"):
         st.info("Initialized chat engine")
     
     with st.chat_message("Assistant"):
-        translator = Translator()
         chat_engine = st.session_state.chat_engine
-        prompten = translator.translate(str(prompt), dest='en')
+        prompten = translator.translate_text(str(prompt), target_lang='EN')
         response = chat_engine.chat(str(prompten.text))
-        responsede = translator.translate(str(response), dest='de')
+        responsede = translator.translate_text(str(response), target_lang='DE')
         st.session_state.messages.append({"role": "Assistant", "content": responsede.text})
         st.markdown(responsede.text)
         if activetts:
             audio = client.generate(
-                text=str(responsede),
+                text=str(responsede.text),
                 voice = "PFBcP8jRKW2qht5HPwFt",
                 model = "eleven_multilingual_v2",
                 output_format="mp3_44100_128"
