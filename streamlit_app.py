@@ -58,14 +58,14 @@ if prompt := st.chat_input("Womit kann ich dir helfen?"):
         chat_engine = st.session_state.chat_engine
         response = chat_engine.chat(str(prompt))
         if language == "Deutsch":
-            response_de = translator.translate_text(str(response), target_lang="DE")
+            response_de = translator.translate_text(str(response), target_lang="DE").text
         else:
             response_de = response
-        st.session_state.messages.append({"role": "Assistant", "content": response_de.text})
-        st.markdown(response_de.text)
+        st.session_state.messages.append({"role": "Assistant", "content": response_de})
+        st.markdown(response_de)
         if activetts:
             audio = client.generate(
-                text=str(response_de.text),
+                text=str(response_de),
                 voice = "PFBcP8jRKW2qht5HPwFt",
                 model = "eleven_multilingual_v2",
                 output_format="mp3_44100_128"
