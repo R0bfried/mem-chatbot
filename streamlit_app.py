@@ -22,7 +22,6 @@ os.environ['OPENAI_API_KEY'] = st.secrets["OPENAI_API_KEY"]
 client = ElevenLabs(
     api_key= st.secrets["EL_KEY"]
     )
-template = (
 
 #Title and Logo of MEM Bot
 col1, col2 = st.columns(2)
