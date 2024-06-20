@@ -38,7 +38,7 @@ if text := st.chat_input("What is up?"):
     # Display user message in chat message container
     with st.chat_message("user"):
         st.markdown(text)
-    with st.chat_message("assistant"):
+    with st.chat_message("Assistant"):
         if initialize:
             reader = SimpleDirectoryReader(input_dir="data", recursive=True)
             documents = reader.load_data()
@@ -46,7 +46,6 @@ if text := st.chat_input("What is up?"):
             query_engine = index.as_query_engine()
             initialize = False
         response = query_engine.query(str(text))
-        st.session_state.messages.append({"role": "assistant", "content": response})
         if activetts:
             audio = client.generate(
                 text=str(response),
@@ -62,6 +61,7 @@ if text := st.chat_input("What is up?"):
     
             # Use Streamlit to play the audio
             st.audio(audio_data, format="audio/mp3", autoplay=True)
+    st.session_state.messages.append({"role": "Assistant", "content": response})
        
 # Welcome to Streamlit!
 
