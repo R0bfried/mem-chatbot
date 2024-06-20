@@ -39,7 +39,7 @@ for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
         
-if prompt := st.chat_input("What is up?"):
+if prompt := st.chat_input("Womit kann ich dir helfen?"):
     # Add user message to chat history
     st.session_state.messages.append({"role": "user", "content": prompt})
     # Display user message in chat message container
@@ -47,7 +47,7 @@ if prompt := st.chat_input("What is up?"):
         st.markdown(prompt)
         
     if "chat_engine" not in st.session_state:
-        reader = SimpleDirectoryReader(input_dir="data", recursive=True)
+        reader = SimpleDirectoryReader(input_dir="german", recursive=True)
         documents = reader.load_data()
         index = VectorStoreIndex.from_documents(documents)
         st.session_state.chat_engine = index.as_chat_engine(chat_mode="condense_question", verbose=True)
