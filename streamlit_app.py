@@ -25,9 +25,9 @@ with col1:
 with col2:
     language = st.selectbox("Language", ("Deutsch", "Englisch"))
     if language == "Deutsch":
-        activetts = st.toggle("Antwort vorlesen")
+        activetts = st.toggle("Antworten vorlesen")
     else:
-        activetts = st.toggle("Read answer")
+        activetts = st.toggle("Read answers")
     
 CHUNK_SIZE = 1024
 if language == "Deutsch":
