@@ -18,6 +18,7 @@ client = ElevenLabs(
 
 
 #Title and Logo of MEM Bot
+st.title("MEM-Bot 1.0")
 col1, col2 = st.columns(2)
 st.logo('https://www.hs-pforzheim.de/typo3conf/ext/wr_hspfo/Resources/Public/Images/logo.svg')
 with col1:
