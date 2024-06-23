@@ -1,7 +1,27 @@
 MEM steht für Engineering and Management.
 Der Studiengang hat 90 Credits (90 ECTS) und dauert 3 Semester.
+Der Studiengangleiter heißt Prof. Dr. Ansgar Kühn.
+Bei Fragen zum Studiengang oder allgemeinen Fragen kann man Lisa Kaiser, die Studiengangkoordinatorin kontaktieren.
 Im dritten Semester schreibt man in der Regel seine Masterthesis, wobei diese üblicherweise in Kooperation mit einem Unternehmen geschrieben wird.
 Auch ein Double Degree mit der NTUST (Taiwan Tech) ist möglich, hier dauert das Studium dann insgesamt 4 Semester, wobei 2 davon in Pforzheim und 2 davon an der Taiwan Tech verbracht werden. NTUST steht für National Taiwan University of Science and Technology. Die Masterthesis wird beim Double Degree in Taiwan geschrieben.
+
+Folgende Module sind Pflichtmodule:
+- Leadership (6 ECTS), unterteilt in die beiden Veranstaltungen BAE5111 Leadership (3 ECTS) und BAE5112 Führung in Projekten (3 ECTS)
+- Produktionsstrategie (6 ECTS), unterteilt in die beiden Veranstaltungen BAE5121 Produktionsstrategie und Methoden (3 ECTS) und BAE5122 Lean Management und Produktionsstrategien (3 ECTS)
+- Produktmanagement (6 ECTS), unterteilt in die beiden Veranstaltungen BAE5131 Produktstrategie (3 ECTS) und BAE5132 Marktorientierte Produktentwicklung (3 ECTS)
+- Managing the Value Chain (6 ECTS), unterteilt in die beiden Veranstaltungen BAE5141 Prozessmanagement (3 ECTS) und BAE5142 Strategischer Einkauf (3 ECTS)
+- Wertorientierte Unternehmensführung (6 ECTS), unterteilt in die beiden Veranstaltungen BAE5151 Unternehmenssteuerung (3 ECTS) und BAE5152 Kennzahlenmanagement (3 ECTS)
+- Management neuer Technologien (6 ECTS)
+- Cross Border Cooperation (6 ECTS)
+- Forschungsmethoden (2 ECTS)
+- Interdisziplinäres Forschungsprojekt/IDFP (4 ECTS)
+- Capstone (6 ECTS), dieses Modul findet offiziell im 3. Semester statt, wird aber ans Ende des zweiten Semesters vorgezogen
+
+Folgende Wahlpflichtmodule müssen belegt werden:
+- Fokus BWL
+- Fokus Technik 1
+- Fokus Technik 2
+- Fokus BWL/Technik/Design: das Jokerfach, hier kann jedes Wahlfach nach Absprache mit Prof. Kühn belegt werden
 
 Als interdisziplinäre Brückenbauer sind Absolventinnen und Absolventen des Masterstudiengangs Engineering and Management in der Lage, unterschiedliche Wissens- und Aufgabenbereiche miteinander zu verzahnen, sowie fächerübergreifend zu denken und zu handeln. Sie besitzen sowohl kaufmännische als auch technische Kompetenzen und können diese für alle Beteiligten in Unternehmen gewinnbringend einsetzen. Mit ihrem vertieften Wissen und ihrem auf Managementaufgaben ausgerichteten Profil sind sie bestens auf die Anforderungen im Berufsleben vorbereitet. 
 
