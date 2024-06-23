@@ -60,7 +60,7 @@ if prompt := st.chat_input("Womit kann ich dir helfen?"):
         reader = SimpleDirectoryReader(input_dir="german", recursive=True)
         documents = reader.load_data()
         index = VectorStoreIndex.from_documents(documents)
-        st.session_state.chat_engine = index.as_chat_engine(chat_mode="best", llm=llm, verbose=True)
+        st.session_state.chat_engine = index.as_chat_engine(chat_mode="best", verbose=True)
         st.info("Initialized chat engine")
     
     with st.chat_message("Assistant"):        
