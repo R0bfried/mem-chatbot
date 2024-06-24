@@ -8,6 +8,7 @@ import ffmpeg
 import base64
 import io
 import deepl
+import openai
 
 
 #Variables: API Keys
