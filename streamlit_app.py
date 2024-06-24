@@ -4,11 +4,11 @@ import elevenlabs
 from elevenlabs.client import ElevenLabs
 import os
 from llama_index.core import VectorStoreIndex, SimpleDirectoryReader
+from llama_index.llms.openai import OpenAI
 import ffmpeg
 import base64
 import io
 import deepl
-import openai
 
 
 #Variables: API Keys
