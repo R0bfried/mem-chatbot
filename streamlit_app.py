@@ -29,14 +29,11 @@ st.logo('https://www.hs-pforzheim.de/typo3conf/ext/wr_hspfo/Resources/Public/Ima
 with col1:
     st.image('MemBot-Logo.png')
     try:
-        resetbutton
+        st.session_state.resetbutton
     except NameError:
         resetbutton = "Zurücksetzen"
     else:
-        if language == "Deutsch":
-            resetbutton = "Zurücksetzen"
-        else:
-            resetbutton = "Reset chat"
+        resetbutton = st.session_state.resetbutton
     if "messages" in st.session_state:
         st.button(resetbutton, type = "primary", on_click=clear)
 with col2:
@@ -60,8 +57,10 @@ with col2:
 CHUNK_SIZE = 1024
 if language == "Deutsch":
     st.markdown("Willkommen beim MEM-Bot. Hier werden deine Fragen zum Studium von unserem virtuellen Prof. Peter beantwortet")
+    st.session_state.resetbutton = "Zurücksetzen"
 else:
     st.markdown("Welcome to MEM-Bot. Our virtual Prof. Peter is happy to answer all your questions concerning the study program")
+    st.session_state.resetbutton = "Reset
 
 #Chat functionality
 
