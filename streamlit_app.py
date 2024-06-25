@@ -19,9 +19,7 @@ client = ElevenLabs(
 gpt4o = OpenAI(model="gpt-4o")
 gpt35 = OpenAI(model="gpt-3.5-turbo")
 
-if "language" not in globals():
-	resetbutton = "Zurücksetzen"
-	language_tag = "Sprache"
+
 def clear():
 	if hasattr(st.session_state, 'messages'):
 		del st.session_state.messages
@@ -31,9 +29,18 @@ col1, col2 = st.columns(2)
 st.logo('https://www.hs-pforzheim.de/typo3conf/ext/wr_hspfo/Resources/Public/Images/logo.svg')
 with col1:
     st.image('MemBot-Logo.png')
+	try:
+		resetbutton
+	except NameError:
+		resetbutton = "Zurücksetzen"
+		language_tag = "Sprache"
     if "messages" in st.session_state:
         st.button(resetbutton, type = "primary", on_click=clear)
 with col2:
+	try:
+		language_tag
+	except NameError:
+		language_tag = "Sprache"
     language = st.selectbox(language_tag, ("Deutsch", "Englisch"))
     if language == "Deutsch":
         activetts = st.toggle("Antworten vorlesen")
