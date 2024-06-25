@@ -45,11 +45,11 @@ CHUNK_SIZE = 1024
 if language == "Deutsch":
 	st.markdown("Willkommen beim MEM-Bot. Hier werden deine Fragen zum Studium von unserem virtuellen Prof. Peter beantwortet")
 	resetbutton = "Zurücksetzen",
-	language_tag = "Deutsch"
+	language_tag = "Sprache"
 else:
 	st.markdown("Welcome to MEM-Bot. Our virtual Prof. Peter is happy to answer all your questions concerning the study program")
 	resetbutton = "Clear chat",
-	language_tag = "Englisch"
+	language_tag = "Language"
 	
 
 #Chat functionality
