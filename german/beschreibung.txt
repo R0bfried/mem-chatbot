@@ -1,9 +1,35 @@
-MEM steht für Engineering and Management.
+MEM steht für Master of Engineering and Management.
 Der Studiengang hat 90 Credits (90 ECTS) und dauert 3 Semester.
 Der Studiengangleiter heißt Prof. Dr. Ansgar Kühn.
 Bei Fragen zum Studiengang oder allgemeinen Fragen kann man Lisa Kaiser, die Studiengangkoordinatorin kontaktieren.
 Im dritten Semester schreibt man in der Regel seine Masterthesis, wobei diese üblicherweise in Kooperation mit einem Unternehmen geschrieben wird.
 Auch ein Double Degree mit der NTUST (Taiwan Tech) ist möglich, hier dauert das Studium dann insgesamt 4 Semester, wobei 2 davon in Pforzheim und 2 davon an der Taiwan Tech verbracht werden. NTUST steht für National Taiwan University of Science and Technology. Die Masterthesis wird beim Double Degree in Taiwan geschrieben.
+Man kann im Master MEM ein Auslandssemester an einer Partneruni machen. Die Partnerunis sind:
+- University of Southern Denmark (SDU) in Odense (Dänemark)
+- École nationale supérieure des mines d'Albi-Carmaux Albi (Frankreich)
+- Institut Teknologi Bandung in Jawa Barat (Indonesien)
+- University of Technology Malaysia in Skudai (Malaysia)
+- Universidad del Pais Vasco in Bilbao (Spanien)
+- Universidad Pontificia Comillas in Madrid (Spanien)
+- National Taiwan University of Science and Technology (Taiwan Tech) in Taipei (Taiwan)
+Falls Sie ein Auslandssemester absolvieren, ist dies in der Regel das 3. Semester und Sie studieren somit ein zusätzliches 4. Semester in Pforzheim.
+
+MEM stands for Engineering and Management.
+The MEM program has 90 credits (90 ECTS) and lasts 3 semesters.
+The program director is Prof. Dr. Ansgar Kühn.
+If you have any questions about the program or general questions, you can contact Lisa Kaiser, the course coordinator.
+In the third semester, you usually write your Master's thesis, which is usually written in cooperation with a company.
+A double degree with NTUST (Taiwan Tech) is also possible, in which case the course lasts a total of 4 semesters, 2 of which are spent in Pforzheim and 2 at Taiwan Tech. NTUST stands for National Taiwan University of Science and Technology. The Master's thesis is written in Taiwan for the double degree.
+You can spend a semester abroad at a partner university in the Master MEM. The partner universities are:
+- University of Southern Denmark (SDU) in Odense (Denmark)
+- École nationale supérieure des mines d'Albi-Carmaux Albi (France)
+- Institut Teknologi Bandung in Jawa Barat (Indonesia)
+- University of Technology Malaysia in Skudai (Malaysia)
+- Universidad del Pais Vasco in Bilbao (Spain)
+- Universidad Pontificia Comillas in Madrid (Spain)
+- National Taiwan University of Science and Technology (Taiwan Tech) in Taipei (Taiwan)
+In case you spend a semester abroad, this is most likely the 3rd semester and you will thus study an additional 4th semeser in Pforzheim.
+
 
 Folgende Module sind Pflichtmodule:
 - Leadership (6 ECTS), unterteilt in die beiden Veranstaltungen BAE5111 Leadership (3 ECTS) und BAE5112 Führung in Projekten (3 ECTS)
@@ -15,7 +41,7 @@ Folgende Module sind Pflichtmodule:
 - Cross Border Cooperation (6 ECTS)
 - Forschungsmethoden (2 ECTS)
 - Interdisziplinäres Forschungsprojekt/IDFP (4 ECTS)
-- Capstone (6 ECTS), dieses Modul findet offiziell im 3. Semester statt, wird aber ans Ende des zweiten Semesters vorgezogen
+- Capstone (4 ECTS), dieses Modul findet offiziell im 3. Semester statt, wird aber ans Ende des zweiten Semesters vorgezogen
 
 Folgende Wahlpflichtmodule müssen belegt werden:
 - Fokus BWL
