@@ -18,6 +18,7 @@ client = ElevenLabs(
     )
 gpt4o = OpenAI(model="gpt-4o")
 gpt35 = OpenAI(model="gpt-3.5-turbo")
+language = ""
 
 def clear():
     if hasattr(st.session_state, 'messages'):
