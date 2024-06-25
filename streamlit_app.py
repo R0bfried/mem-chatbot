@@ -18,8 +18,10 @@ client = ElevenLabs(
     )
 gpt4o = OpenAI(model="gpt-4o")
 gpt35 = OpenAI(model="gpt-3.5-turbo")
-resetbutton = "Zurücksetzen"
-language_tag = "Sprache"
+
+if "language" not in locals():
+	resetbutton = "Zurücksetzen"
+	language_tag = "Sprache"
 def clear():
 	if hasattr(st.session_state, 'messages'):
 		del st.session_state.messages
