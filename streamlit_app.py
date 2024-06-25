@@ -19,47 +19,41 @@ client = ElevenLabs(
 gpt4o = OpenAI(model="gpt-4o")
 gpt35 = OpenAI(model="gpt-3.5-turbo")
 
-
 def clear():
-	if hasattr(st.session_state, 'messages'):
-		del st.session_state.messages
-
+    if hasattr(st.session_state, 'messages'):
+        del st.session_state.messages
+        
 #Title and Logo of MEM Bot
 col1, col2 = st.columns(2)
 st.logo('https://www.hs-pforzheim.de/typo3conf/ext/wr_hspfo/Resources/Public/Images/logo.svg')
 with col1:
     st.image('MemBot-Logo.png')
-	try:
-		resetbutton
-	except NameError:
-		resetbutton = "Zurücksetzen"
-		language_tag = "Sprache"
+    try:
+        resetbutton
+    except NameError:
+        resetbutton = "Zurücksetzen"
     if "messages" in st.session_state:
         st.button(resetbutton, type = "primary", on_click=clear)
 with col2:
-	try:
-		language_tag
-	except NameError:
-		language_tag = "Sprache"
-    language = st.selectbox(language_tag, ("Deutsch", "Englisch"))
+    try:
+        language
+    except NameError:
+        language = "Deutsch"
+    language = st.selectbox(language, ("Deutsch", "Englisch"))
     if language == "Deutsch":
         activetts = st.toggle("Antworten vorlesen")
         gptmodel = st.toggle("Genauere Antwort")
     else:
         activetts = st.toggle("Read answers")
         gptmodel = st.toggle("More precise answer")
-
     
 CHUNK_SIZE = 1024
 if language == "Deutsch":
-	st.markdown("Willkommen beim MEM-Bot. Hier werden deine Fragen zum Studium von unserem virtuellen Prof. Peter beantwortet")
-	resetbutton = "Zurücksetzen"
-	language_tag = "Sprache"
+    st.markdown("Willkommen beim MEM-Bot. Hier werden deine Fragen zum Studium von unserem virtuellen Prof. Peter beantwortet")
+    resetbutton = "Zurücksetzen"
 else:
-	st.markdown("Welcome to MEM-Bot. Our virtual Prof. Peter is happy to answer all your questions concerning the study program")
-	resetbutton = "Clear chat"
-	language_tag = "Language"
-	
+    st.markdown("Welcome to MEM-Bot. Our virtual Prof. Peter is happy to answer all your questions concerning the study program")
+    resetbutton = "Clear chat"
 
 #Chat functionality
 
