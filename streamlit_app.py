@@ -92,9 +92,6 @@ if prompt := st.chat_input("Womit kann ich dir helfen?"):
 st.button("Reset chat", type = "primary")
 if st.button:
     st.session_state.messages = []
-    for message in st.session_state.messages:
-    with st.chat_message(message["role"]):
-        st.markdown(message["content"])
        
 # Welcome to Streamlit!
 
