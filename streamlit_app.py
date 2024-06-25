@@ -24,7 +24,7 @@ def clear():
         del st.session_state.messages
         
 #Title and Logo of MEM Bot
-col1, col2 = st.columns(2)
+col1, col2 = st.columns(2, vertical_alignment = "top")
 st.logo('https://www.hs-pforzheim.de/typo3conf/ext/wr_hspfo/Resources/Public/Images/logo.svg')
 with col1:
     st.image('MemBot-Logo.png')
