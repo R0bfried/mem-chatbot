@@ -29,11 +29,14 @@ st.logo('https://www.hs-pforzheim.de/typo3conf/ext/wr_hspfo/Resources/Public/Ima
 with col1:
     st.image('MemBot-Logo.png')
     try:
-        st.session_state.resetbutton
+        language
     except NameError:
         resetbutton = "Zurücksetzen"
     else:
-        resetbutton = st.session_state.resetbutton
+        if language == "Deutsch":
+            resetbutton = "Zurücksetzen"
+        else:
+            resetbutton = "Reset"
     if "messages" in st.session_state:
         st.button(resetbutton, type = "primary", on_click=clear)
 with col2:
