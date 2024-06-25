@@ -19,6 +19,7 @@ client = ElevenLabs(
 gpt4o = OpenAI(model="gpt-4o")
 gpt35 = OpenAI(model="gpt-3.5-turbo")
 resetbutton = "Zurücksetzen"
+language_tag = "Sprache"
 def clear():
 	if hasattr(st.session_state, 'messages'):
 		del st.session_state.messages
@@ -31,21 +32,25 @@ with col1:
     if "messages" in st.session_state:
         st.button(resetbutton, type = "primary", on_click=clear)
 with col2:
-    language = st.selectbox("Language", ("Deutsch", "Englisch"))
+    language = st.selectbox(language_tag, ("Deutsch", "Englisch"))
     if language == "Deutsch":
         activetts = st.toggle("Antworten vorlesen")
         gptmodel = st.toggle("Genauere Antwort")
     else:
         activetts = st.toggle("Read answers")
         gptmodel = st.toggle("More precise answer")
+
     
 CHUNK_SIZE = 1024
 if language == "Deutsch":
-    st.markdown("Willkommen beim MEM-Bot. Hier werden deine Fragen zum Studium von unserem virtuellen Prof. Peter beantwortet")
-    resetbutton = "Zurücksetzen"
+	st.markdown("Willkommen beim MEM-Bot. Hier werden deine Fragen zum Studium von unserem virtuellen Prof. Peter beantwortet")
+	resetbutton = "Zurücksetzen",
+	language_tag = "Deutsch"
 else:
-    st.markdown("Welcome to MEM-Bot. Our virtual Prof. Peter is happy to answer all your questions concerning the study program")
-    resetbutton = "Clear chat"
+	st.markdown("Welcome to MEM-Bot. Our virtual Prof. Peter is happy to answer all your questions concerning the study program")
+	resetbutton = "Clear chat",
+	language_tag = "Englisch"
+	
 
 #Chat functionality
 
