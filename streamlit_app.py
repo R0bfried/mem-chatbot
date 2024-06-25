@@ -19,14 +19,13 @@ client = ElevenLabs(
 gpt4o = OpenAI(model="gpt-4o")
 gpt35 = OpenAI(model="gpt-3.5-turbo")
 resetbutton = "Zurücksetzen"
-def initialize_chat():
-    st.session_state.messages = []  
 
 #Title and Logo of MEM Bot
 col1, col2 = st.columns(2)
 st.logo('https://www.hs-pforzheim.de/typo3conf/ext/wr_hspfo/Resources/Public/Images/logo.svg')
 with col1:
     st.image('MemBot-Logo.png')
+    if "messages" in st.session_state:
     st.button(resetbutton, type = "primary", on_click=initialize_chat)
 with col2:
     language = st.selectbox("Language", ("Deutsch", "Englisch"))
@@ -46,7 +45,8 @@ else:
     resetbutton = "Clear chat"
 
 #Chat functionality
-  
+def initialize_chat():
+    st.session_state.messages = []  
 
 # Initialize chat history
 if "messages" not in st.session_state:
