@@ -24,7 +24,11 @@ col1, col2 = st.columns(2)
 st.logo('https://www.hs-pforzheim.de/typo3conf/ext/wr_hspfo/Resources/Public/Images/logo.svg')
 with col1:
     st.image('MemBot-Logo.png')
-    st.button("Reset chat", type = "primary")
+    if language == "Deutsch":
+        resetbutton = "Zurücksetzen"
+    else:
+        resetbutton = "Reset chat"
+    st.button(resetbutton, type = "primary")
     if st.button:
         st.session_state.messages = []
 with col2:
