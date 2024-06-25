@@ -25,9 +25,7 @@ col1, col2 = st.columns(2)
 st.logo('https://www.hs-pforzheim.de/typo3conf/ext/wr_hspfo/Resources/Public/Images/logo.svg')
 with col1:
     st.image('MemBot-Logo.png')
-#    reset = st.button(resetbutton, type = "primary")
- #   if reset == True:
-  #      st.session_state.messages = []
+    st.button(resetbutton, type = "primary", on_click=initialize_chat)
 with col2:
     language = st.selectbox("Language", ("Deutsch", "Englisch"))
     if language == "Deutsch":
@@ -47,10 +45,12 @@ else:
 
 #Chat functionality
 
+def initialize_chat():
+    st.session_state.messages = []    
 
 # Initialize chat history
 if "messages" not in st.session_state:
-    st.session_state.messages = []
+    initialize_chat
 
 # Display chat messages from history on app rerun
 for message in st.session_state.messages:
