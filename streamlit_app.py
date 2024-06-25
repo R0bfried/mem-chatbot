@@ -19,7 +19,7 @@ client = ElevenLabs(
 gpt4o = OpenAI(model="gpt-4o")
 gpt35 = OpenAI(model="gpt-3.5-turbo")
 
-if "language" not in locals():
+if "language" not in globals():
 	resetbutton = "Zurücksetzen"
 	language_tag = "Sprache"
 def clear():
