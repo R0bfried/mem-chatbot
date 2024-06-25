@@ -44,11 +44,11 @@ with col2:
 CHUNK_SIZE = 1024
 if language == "Deutsch":
 	st.markdown("Willkommen beim MEM-Bot. Hier werden deine Fragen zum Studium von unserem virtuellen Prof. Peter beantwortet")
-	resetbutton = "Zurücksetzen",
+	resetbutton = "Zurücksetzen"
 	language_tag = "Sprache"
 else:
 	st.markdown("Welcome to MEM-Bot. Our virtual Prof. Peter is happy to answer all your questions concerning the study program")
-	resetbutton = "Clear chat",
+	resetbutton = "Clear chat"
 	language_tag = "Language"
 	
 
