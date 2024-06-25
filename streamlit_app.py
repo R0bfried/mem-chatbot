@@ -18,16 +18,13 @@ client = ElevenLabs(
     )
 gpt4o = OpenAI(model="gpt-4o")
 gpt35 = OpenAI(model="gpt-3.5-turbo")
+resetbutton = "Zurücksetzen"
 
 #Title and Logo of MEM Bot
 col1, col2 = st.columns(2)
 st.logo('https://www.hs-pforzheim.de/typo3conf/ext/wr_hspfo/Resources/Public/Images/logo.svg')
 with col1:
     st.image('MemBot-Logo.png')
-    if language == "Deutsch":
-        resetbutton = "Zurücksetzen"
-    else:
-        resetbutton = "Reset chat"
     st.button(resetbutton, type = "primary")
     if st.button:
         st.session_state.messages = []
@@ -43,8 +40,10 @@ with col2:
 CHUNK_SIZE = 1024
 if language == "Deutsch":
     st.markdown("Willkommen beim MEM-Bot. Hier werden deine Fragen zum Studium von unserem virtuellen Prof. Peter beantwortet")
+    resetbutton = "Zurücksetzen"
 else:
     st.markdown("Welcome to MEM-Bot. Our virtual Prof. Peter is happy to answer all your questions concerning the study program")
+    resetbutton = "Clear chat"
 
 #Chat functionality
 
