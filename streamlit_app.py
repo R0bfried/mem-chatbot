@@ -19,6 +19,8 @@ client = ElevenLabs(
 gpt4o = OpenAI(model="gpt-4o")
 gpt35 = OpenAI(model="gpt-3.5-turbo")
 resetbutton = "Zurücksetzen"
+def initialize_chat():
+    st.session_state.messages = []  
 
 #Title and Logo of MEM Bot
 col1, col2 = st.columns(2)
@@ -44,9 +46,7 @@ else:
     resetbutton = "Clear chat"
 
 #Chat functionality
-
-def initialize_chat():
-    st.session_state.messages = []    
+  
 
 # Initialize chat history
 if "messages" not in st.session_state:
