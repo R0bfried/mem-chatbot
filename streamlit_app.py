@@ -60,7 +60,7 @@ if language == "Deutsch":
     st.session_state.resetbutton = "Zurücksetzen"
 else:
     st.markdown("Welcome to MEM-Bot. Our virtual Prof. Peter is happy to answer all your questions concerning the study program")
-    st.session_state.resetbutton = "Reset
+    st.session_state.resetbutton = "Reset"
 
 #Chat functionality
 
