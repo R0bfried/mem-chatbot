@@ -16,19 +16,25 @@ os.environ['OPENAI_API_KEY'] = st.secrets["OPENAI_API_KEY"]
 client = ElevenLabs(
     api_key= st.secrets["EL_KEY"]
     )
-llm = OpenAI(model="gpt-4o")
+gpt4o = OpenAI(model="gpt-4o")
+gpt35 = OpenAI(model="gpt-3.5-turbo")
 
 #Title and Logo of MEM Bot
 col1, col2 = st.columns(2)
 st.logo('https://www.hs-pforzheim.de/typo3conf/ext/wr_hspfo/Resources/Public/Images/logo.svg')
 with col1:
     st.image('MemBot-Logo.png')
+    st.button("Reset chat", type = "primary")
+    if st.button:
+        st.session_state.messages = []
 with col2:
     language = st.selectbox("Language", ("Deutsch", "Englisch"))
     if language == "Deutsch":
         activetts = st.toggle("Antworten vorlesen")
+        gptmodel = st.toggle("Genauere Antwort")
     else:
         activetts = st.toggle("Read answers")
+        gptmodel = st.toggle("More precise answer")
     
 CHUNK_SIZE = 1024
 if language == "Deutsch":
@@ -60,12 +66,17 @@ if prompt := st.chat_input("Womit kann ich dir helfen?"):
         reader = SimpleDirectoryReader(input_dir="german", recursive=True)
         documents = reader.load_data()
         index = VectorStoreIndex.from_documents(documents)
-        st.session_state.chat_engine = index.as_chat_engine(chat_mode="best", llm=llm, verbose=True)
+        st.session_state.chat_engine = index.as_chat_engine(chat_mode="best", llm=gpt4o, verbose=True)
+        st.session_state.chat_engine3 = index.as_chat_engine(chat_mode="best", llm=gpt35, verbose=True)
         st.info("Initialized chat engine")
     
     with st.chat_message("Assistant"):        
         translator = deepl.Translator(st.secrets["DEEPL_KEY"])
-        chat_engine = st.session_state.chat_engine
+# Wahl des GPT-Modells nach Toggle-Auswahl        
+        if gptmodel:
+            chat_engine = st.session_state.chat_engine
+        else:
+            chat_engine = st.session_state.chat_engine3
         response = chat_engine.chat(str(prompt))
         if language == "Deutsch":
             response_de = translator.translate_text(str(response), target_lang="DE").text
@@ -89,9 +100,7 @@ if prompt := st.chat_input("Womit kann ich dir helfen?"):
             # Use Streamlit to play the audio
             st.audio(audio_data, format="audio/mp3", autoplay=True)
 
-st.button("Reset chat", type = "primary")
-if st.button:
-    st.session_state.messages = []
+
        
 # Welcome to Streamlit!
 
