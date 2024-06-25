@@ -32,14 +32,24 @@ with col1:
         resetbutton
     except NameError:
         resetbutton = "Zurücksetzen"
+    else:
+        if language == "Deutsch":
+            resetbutton = "Zurücksetzen"
+        else:
+            resetbutton = "Reset chat"
     if "messages" in st.session_state:
         st.button(resetbutton, type = "primary", on_click=clear)
 with col2:
     try:
         language
     except NameError:
-        language = "Deutsch"
-    language = st.selectbox(language, ("Deutsch", "Englisch"))
+        languagetag = "Sprache"
+    else:
+        if language == "Deutsch":
+            languagetag = "Sprache"
+        else:
+            languagetag = "Language"
+    language = st.selectbox(languagetag, ("Deutsch", "Englisch"))
     if language == "Deutsch":
         activetts = st.toggle("Antworten vorlesen")
         gptmodel = st.toggle("Genauere Antwort")
@@ -50,10 +60,8 @@ with col2:
 CHUNK_SIZE = 1024
 if language == "Deutsch":
     st.markdown("Willkommen beim MEM-Bot. Hier werden deine Fragen zum Studium von unserem virtuellen Prof. Peter beantwortet")
-    resetbutton = "Zurücksetzen"
 else:
     st.markdown("Welcome to MEM-Bot. Our virtual Prof. Peter is happy to answer all your questions concerning the study program")
-    resetbutton = "Clear chat"
 
 #Chat functionality
 
