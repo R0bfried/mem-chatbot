@@ -12,8 +12,7 @@ import deepl
 
 st.set_page_config(
         page_title="MEM-Bot",
-        page_icon='https://www.hs-pforzheim.de/typo3conf/ext/wr_hspfo/Resources/Public/Images/logo.svg',
-        layout="wide",
+        page_icon='https://www.hs-pforzheim.de/typo3conf/ext/wr_hspfo/Resources/Public/Images/logo.svg'
     )
 
 
