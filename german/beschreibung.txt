@@ -5,6 +5,25 @@ Bei Fragen zum Studiengang oder allgemeinen Fragen kann man Lisa Kaiser, die Stu
 Im dritten Semester schreibt man in der Regel seine Masterthesis, wobei diese üblicherweise in Kooperation mit einem Unternehmen geschrieben wird.
 Auch ein Double Degree mit der NTUST (Taiwan Tech) ist möglich, hier dauert das Studium dann insgesamt 4 Semester, wobei 2 davon in Pforzheim und 2 davon an der Taiwan Tech verbracht werden. NTUST steht für National Taiwan University of Science and Technology. Die Masterthesis wird beim Double Degree in Taiwan geschrieben.
 
+Voraussetzungen für den MEM-Studiengang:
+Folgende Voraussetzungen sollte man für die Zulassung des MEM erfüllen:
+Es muss ein Online-Zulassungsantrag im Webportal der Hochschule gestellt werden.
+Folgende Unterlagen müssen im Portal hchgeladen werden:
+- Kurzlebenslauf
+- Zeugnis über abgeschlossenes 1. Hochschulstudium (Bachelorzeugnis) mit der Abschlussnote "gut" oder besser (min. 2,5). Das Bachelorstudium muss in einem wirtschaftsingenieurwissenschaftlichen Studium erbracht worden sein, da es sich um einen konsekutiven Masterstudiengang für Wirtschaftsingenieurwesen handelt.
+- ein max. zweiseitiges Motivationsschreiben
+- ein Nachweis über Englischkenntnisse auf B2-Niveau
+- für nicht-Muttersprachler im Deutschen: Nachweis geeigneter Deutschkenntnisse
+- ein Gutachten bzw. Empfehlungs- oder Referenzschreiben einer akademischen Institution oder eines Unternehmens
+Über die eingereichten Dokumente und die Zulassung entscheidet der Studiendekan des MEM Prof. Dr. Kühn und die Auswahlkommission.
+Dabei besteht folgende Gewichtung:
+- Note des Bachelorzeugnisses: 30 Punkte
+- Qualität des Motivationsschreibens: 15 Punkte:
+- Studieninhalte Erststudium bzgl. Qualifikationsrahmens WI: 30 Punkte
+- Praxiserfahrung, Auslandserfahrung, sonstiges Engagement: 15 Punkte
+- Referenzschreiben: 10 Punkte
+Insgesamt werden im Wintersemester 16 Personen und im Sommersemester 8 Personen zum Studiengang MEM zugelassen.
+
 Man kann im Master MEM ein Auslandssemester an einer Partneruniversität absolvieren. Die Partnerunis für Auslandssemester sind:
 - University of Southern Denmark (SDU) in Odense (Dänemark)
 - École nationale supérieure des mines d'Albi-Carmaux Albi (Frankreich)
@@ -31,6 +50,27 @@ You can spend a semester abroad at a partner university in the Master MEM. The p
 - Universidad Pontificia Comillas in Madrid (Spain)
 - National Taiwan University of Science and Technology (Taiwan Tech) in Taipei (Taiwan)
 In case you spend a semester abroad, this is most likely the 3rd semester and you will thus study an additional 4th semeser in Pforzheim.
+
+Prerequisites for the MEM degree program:
+The following requirements should be met for admission to the MEM:
+An online application for admission must be submitted on the university's web portal.
+The following documents must be uploaded to the portal:
+- Short curriculum vitae
+- Certificate of completed 1st university degree (Bachelor's certificate) with a final grade of "good" or better (min. 2.5). The Bachelor's degree must have been obtained in an industrial engineering degree program, as this is a consecutive Master's degree program in industrial engineering.
+- a letter of motivation of no more than two pages
+- proof of English language skills at B2 level
+- for non-native speakers of German: Proof of suitable German language skills
+- a letter of recommendation or reference from an academic institution or company
+The Dean of Studies of the MEM Prof. Dr. Kühn and the selection committee decide on the documents submitted and admission.
+The following weighting applies:
+- Grade of the Bachelor's certificate: 30 points
+- Quality of the letter of motivation: 15 points:
+- Study content of the first degree program with regard to the WI qualification framework: 30 points
+- Practical experience, experience abroad, other commitments: 15 points
+- Letter of reference: 10 points
+A total of 16 people are admitted to the MEM course in the winter semester and 8 people in the summer semester.
+
+Translated with DeepL.com (free version)
 
 
 Folgende Module sind Pflichtmodule:
